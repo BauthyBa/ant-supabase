@@ -1,0 +1,177 @@
+/* Animación para fade-in de mensajes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* Bounce lento para el ícono del bot */
+@keyframes bounceSlow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-bounce-slow {
+  animation: bounceSlow 2s infinite;
+}
+
+/* Animación de placeholder (opcional, para suavizar la opacidad) */
+.animate-placeholder::placeholder {
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background: radial-gradient(ellipse at 20% 20%, #a259ff33 0%, transparent 70%),
+              radial-gradient(ellipse at 80% 80%, #ff4d5a33 0%, transparent 70%),
+              linear-gradient(120deg, #181824 0%, #23233b 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.container, .inner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* El chat principal (max-w-2xl) ya está centrado por los flex de los componentes, pero esto asegura el centrado absoluto en cualquier caso. */
+
+/* Contenedor principal glass */
+.glass-container {
+  background: rgba(255,255,255,0.07);
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 2.5rem 2rem 1.5rem 2rem;
+  max-width: 400px;
+  width: 100%;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Header minimalista */
+.glass-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.glass-title {
+  flex: 1;
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.glass-exit {
+  background: #ff4d5a;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px 0 #ff4d5a44;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.glass-exit:hover {
+  background: #e13b47;
+}
+
+/* Mensajes */
+.glass-message {
+  background: rgba(255,255,255,0.10);
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 400;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+
+/* Input y botón */
+.glass-input-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.06);
+  padding: 0.5rem 0.7rem;
+}
+.glass-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  padding: 0.5rem 0.2rem;
+}
+.glass-send {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1.2rem;
+  border-radius: 0.7rem;
+  transition: background 0.2s, color 0.2s;
+}
+.glass-send:hover {
+  background: rgba(255,255,255,0.10);
+  color: #ff4d5a;
+}
